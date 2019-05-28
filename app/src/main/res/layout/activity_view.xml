@@ -8,13 +8,14 @@
     <com.widget.lib.viewpager.RecyclerViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="80dp"
         tools:listitem="@layout/main_item" />
 
     <Button
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:text="开启动画"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_orientation"
@@ -33,27 +34,33 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/btn_2"
+            android:id="@+id/btn_150"
             android:layout_width="wrap_content"
-            android:text="0.2倍速"
+            android:text="150毫秒"
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btn_5"
+            android:id="@+id/btn_500"
             android:layout_width="wrap_content"
-            android:text="0.5倍速"
+            android:text="500毫秒"
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btn_10"
+            android:id="@+id/btn_800"
             android:layout_width="wrap_content"
-            android:text="正常速"
+            android:text="800毫秒"
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btn_15"
+            android:id="@+id/btn_1000"
             android:layout_width="wrap_content"
-            android:text="1.5倍速"
+            android:text="1秒"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_1500"
+            android:layout_width="wrap_content"
+            android:text="1.5秒"
             android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

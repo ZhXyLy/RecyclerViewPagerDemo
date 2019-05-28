@@ -2,9 +2,11 @@ package com.widget.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,14 +40,13 @@ public class ViewActivity extends AppCompatActivity {
         DemoViewAdapter demoViewAdapter = new DemoViewAdapter();
         viewPager.setAdapter(demoViewAdapter);
 
-
         ArrayList<String> strings = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
             strings.add("这是item：" + (i + 1));
         }
         demoViewAdapter.setData(strings);
 
-        handler = new Handler(getMainLooper());
+        handler = new Handler(Looper.getMainLooper());
         runnable = () -> {
             int currentItem = viewPager.getCurrentItem();
             int itemCount = viewPager.getItemCount();
@@ -101,24 +102,29 @@ public class ViewActivity extends AppCompatActivity {
             btnDirection.setText(isClockwise?"逆向":"正向");
         });
 
-        Button btn2 = findViewById(R.id.btn_2);
+        Button btn1 = findViewById(R.id.btn_150);
+        btn1.setOnClickListener(v -> {
+            viewPager.setDuration(150);
+        });
+
+        Button btn2 = findViewById(R.id.btn_500);
         btn2.setOnClickListener(v -> {
-            viewPager.setScrollVelocity(0.2f);
+            viewPager.setDuration(500);
         });
 
-        Button btn5 = findViewById(R.id.btn_5);
+        Button btn3 = findViewById(R.id.btn_800);
+        btn3.setOnClickListener(v -> {
+            viewPager.setDuration(800);
+        });
+
+        Button btn4 = findViewById(R.id.btn_1000);
+        btn4.setOnClickListener(v -> {
+            viewPager.setDuration(1000);
+        });
+
+        Button btn5 = findViewById(R.id.btn_1500);
         btn5.setOnClickListener(v -> {
-            viewPager.setScrollVelocity(0.5f);
-        });
-
-        Button btn10 = findViewById(R.id.btn_10);
-        btn10.setOnClickListener(v -> {
-            viewPager.setScrollVelocity(1f);
-        });
-
-        Button btn15 = findViewById(R.id.btn_15);
-        btn15.setOnClickListener(v -> {
-            viewPager.setScrollVelocity(1.5f);
+            viewPager.setDuration(1500);
         });
     }
 

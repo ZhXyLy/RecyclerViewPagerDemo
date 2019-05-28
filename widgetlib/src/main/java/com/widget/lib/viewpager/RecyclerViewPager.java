@@ -38,7 +38,7 @@ public class RecyclerViewPager extends RecyclerView {
     /**
      * 速率，默认是1，<1：表示慢速，>1：表示速度比正常的快
      */
-    private float scrollVelocity = 1;
+    private int mDuration = 300;
 
     public RecyclerViewPager(Context context) {
         this(context, null);
@@ -59,7 +59,10 @@ public class RecyclerViewPager extends RecyclerView {
                     @Override
                     protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
                         //重写此方法，改变smooth滚动的速度，返回值越大越慢
-                        return 25.0F / scrollVelocity / (float) displayMetrics.densityDpi;
+                        if (mOrientation == VERTICAL) {
+                            return mDuration / 3.0f / getHeight();
+                        }
+                        return mDuration / 3.0f / getWidth();
                     }
                 };
                 linearSmoothScroller.setTargetPosition(position);
@@ -266,10 +269,10 @@ public class RecyclerViewPager extends RecyclerView {
     }
 
     /**
-     * @param velocity 速率 1表示正常速度，越大越快
+     * @param duration 滚动时间（不精准，实际会快一丢丢，500ms，实际大概是498左右）
      */
-    public void setScrollVelocity(float velocity) {
-        this.scrollVelocity = velocity;
+    public void setDuration(int duration) {
+        this.mDuration = duration;
     }
 
     public void setCurrentItem(int position) {
