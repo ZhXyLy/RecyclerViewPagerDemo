@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:clipChildren="false"
     android:orientation="vertical">
 
     <com.widget.lib.viewpager.RecyclerViewPager
@@ -66,10 +64,15 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
+<FrameLayout
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <com.widget.lib.viewpager.RecyclerViewPager
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         tools:listitem="@layout/main_item" />
+</FrameLayout>
 </LinearLayout>
