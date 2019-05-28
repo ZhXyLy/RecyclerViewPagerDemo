@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
     static class DemoFragmentRecyclerPagerAdapter extends FragmentRecyclerPagerAdapter {
 
-        public DemoFragmentRecyclerPagerAdapter(FragmentManager fm) {
+        DemoFragmentRecyclerPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
