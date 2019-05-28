@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class ViewActivity extends AppCompatActivity {
 
-    private RecyclerViewPager viewPager;
+    private RecyclerViewPager viewPager,viewPager2;
     private boolean isStart = false;
     private boolean isClockwise = true;
     private Runnable runnable;
@@ -36,9 +36,13 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
 
         viewPager = findViewById(R.id.view_pager);
+        viewPager2 = findViewById(R.id.view_pager2);
 
         DemoViewAdapter demoViewAdapter = new DemoViewAdapter();
         viewPager.setAdapter(demoViewAdapter);
+        viewPager2.setAdapter(demoViewAdapter);
+        int offset = getResources().getDimensionPixelSize(R.dimen.dp8);
+        viewPager2.addItemDecoration(new GalleryItemDecoration(this, offset, offset, offset * 2));
 
         ArrayList<String> strings = new ArrayList<>();
         for (int i = 0; i < 30; i++) {

@@ -5,7 +5,7 @@ RecyclerViewPager:1.0-beta
 ### ***RecyclerView实现ViewPager效果***
 
 demo示例：
-<br>[app-debug.apk](apks/app-debug-1.0-beta.apk "1")
+<br>[app-debug.apk](apks/app-debug.apk "1")
 
 <h3>效果图：</h3>
 

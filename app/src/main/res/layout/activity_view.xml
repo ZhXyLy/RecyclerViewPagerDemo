@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:clipChildren="false"
     android:orientation="vertical">
 
     <com.widget.lib.viewpager.RecyclerViewPager
@@ -15,7 +17,7 @@
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:text="开启动画"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_orientation"
@@ -63,4 +65,11 @@
             android:text="1.5秒"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+
+    <com.widget.lib.viewpager.RecyclerViewPager
+        android:id="@+id/view_pager2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:listitem="@layout/main_item" />
 </LinearLayout>
