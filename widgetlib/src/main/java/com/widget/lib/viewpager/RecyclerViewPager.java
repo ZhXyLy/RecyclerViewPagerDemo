@@ -275,6 +275,10 @@ public class RecyclerViewPager extends RecyclerView {
         this.mDuration = duration;
     }
 
+    public int getDuration() {
+        return mDuration;
+    }
+
     public void setCurrentItem(int position) {
         setCurrentItem(position, false);
     }
@@ -318,6 +322,24 @@ public class RecyclerViewPager extends RecyclerView {
 
     public void setPageTransformer(PageTransformer transformer) {
         this.mPageTransformer = transformer;
+    }
+
+    public static class SimplePageChangeListener implements OnPageChangeListener{
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
     }
 
     public interface OnPageChangeListener {

@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class ViewActivity extends AppCompatActivity {
 
-    private RecyclerViewPager viewPager,viewPager2;
+    private RecyclerViewPager viewPager, viewPager2;
     private boolean isStart = false;
     private boolean isClockwise = true;
     private Runnable runnable;
@@ -45,30 +45,46 @@ public class ViewActivity extends AppCompatActivity {
         viewPager2.addItemDecoration(new GalleryItemDecoration(this, offset, offset, offset * 2));
 
         ArrayList<String> strings = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 6; i++) {
             strings.add("这是item：" + (i + 1));
         }
+        //为了无限循环给开始加个最后的元素，给最后加个开始的元素
+        String s = strings.get(0);
+        String s1 = strings.get(strings.size() - 1);
+        strings.add(0, s1);
+        strings.add(s);
         demoViewAdapter.setData(strings);
+        viewPager.setCurrentItem(1);
+        viewPager.setOnPageChangeListener(new RecyclerViewPager.SimplePageChangeListener() {
 
+            @Override
+            public void onPageSelected(int position) {
+                //滚动开头的地方，直接切换到倒数第二个位置
+                //滚动的结尾，直接切换到第二个位置
+                if (position==0) {
+                    viewPager.setCurrentItem(viewPager.getItemCount()-2);
+                }else if (position == viewPager.getItemCount()-1){
+                    viewPager.setCurrentItem(1);
+                }
+            }
+        });
         handler = new Handler(Looper.getMainLooper());
         runnable = () -> {
             int currentItem = viewPager.getCurrentItem();
             int itemCount = viewPager.getItemCount();
             if (isClockwise) {
                 int position = currentItem + 1;
-                if (position < itemCount - 1) {
+                if (position < itemCount - 2) {
                     viewPager.setCurrentItem(position, true);
                 } else {
-                    position = 0;
-                    viewPager.setCurrentItem(position);
+                    viewPager.setCurrentItem(position, true);
                 }
             } else {
                 int position = currentItem - 1;
-                if (position > 0) {
+                if (position > 1) {
                     viewPager.setCurrentItem(position, true);
                 } else {
-                    position = itemCount - 1;
-                    viewPager.setCurrentItem(position);
+                    viewPager.setCurrentItem(position, true);
                 }
             }
 
@@ -102,8 +118,8 @@ public class ViewActivity extends AppCompatActivity {
 
         Button btnDirection = findViewById(R.id.btn_direction);
         btnDirection.setOnClickListener(v -> {
-            isClockwise=!isClockwise;
-            btnDirection.setText(isClockwise?"逆向":"正向");
+            isClockwise = !isClockwise;
+            btnDirection.setText(isClockwise ? "逆向" : "正向");
         });
 
         Button btn1 = findViewById(R.id.btn_150);
