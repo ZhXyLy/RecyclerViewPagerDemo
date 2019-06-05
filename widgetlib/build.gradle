@@ -3,11 +3,10 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.ZhXyLy'
+group='com.gitee.wodexiaohouzi'
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 21

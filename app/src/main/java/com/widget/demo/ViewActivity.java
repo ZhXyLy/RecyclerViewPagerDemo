@@ -88,7 +88,7 @@ public class ViewActivity extends AppCompatActivity {
                 }
             }
 
-            handler.postDelayed(runnable, 2000);
+            handler.postDelayed(runnable, 1500);
         };
 
         Button btnStart = findViewById(R.id.btn_start);
